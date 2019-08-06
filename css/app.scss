@@ -1,0 +1,66 @@
+$colors: (primary: #5e72eb,
+    secondary: #ff9190,
+    accent: #120c6e,
+    secondary-accent: #FDC094,
+    fontColor: #0b0742);
+
+@function color($color-name) {
+    @return map-get($colors, $color-name);
+}
+
+@mixin control-screen-size {
+    @media (min-width: 800px) {
+        @content;
+    }
+}
+
+@mixin control-page {
+    @media (max-height: 460px) {
+        @content;
+    }
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    font-family: 'Nunito';
+    min-height: 460px;
+    // color: color(accent);
+    background: linear-gradient(20deg, color(secondary), color(secondary-accent));
+    overflow: hidden;
+}
+
+#number-container {
+    padding: 0 20px;
+    // border: 1px red solid;
+    width: auto;
+    display: grid;
+
+    #number-head {
+        // border: 1px green solid;
+        justify-self: center;
+        font-size: calc(25vw + 20vh);
+        font-weight: 800;
+        color: color(fontColor);
+        font-family: 'Courier New';
+    }
+
+    #number-description {
+        // border: 1px white solid;
+        max-width: 50vw;
+        color: color(accent);
+        
+        @include control-page {
+            grid-column: 2;
+            margin-left: 20px;
+        }
+    }
+
+    @include control-page {
+        grid-template-columns: 50% 50%;
+        align-items: center;
+    }
+}
