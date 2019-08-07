@@ -1,0 +1,13 @@
+{
+    "manifest_version": 2,
+    "name": "Numbers",
+    "description": "It will show you a fact about a random number.",
+    "author": "Sahithyan",
+    "version": "1.0",
+    "browser_action": {
+        "default_icon": "icons/logo.png"
+    },
+    "chrome_url_overrides": {
+        "newtab": "index.html"
+    }
+}
