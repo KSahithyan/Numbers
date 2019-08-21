@@ -3,10 +3,22 @@
     "name": "Numbers",
     "description": "It will show you a fact about a random number.",
     "author": "Sahithyan",
-    "version": "1.0",
-    "browser_action": {
-        "default_icon": "icons/logo.png"
+    "version": "1.2",
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+    "icons": { 
+        "128": "icons/logo.png"
     },
+    "browser_action": {
+        "default_icon": "icons/logo.png",
+        "default_popup": "pop.html"
+    },
+    "background": {
+        "scripts": ["js/background.js"]
+    },
+    "incognito": "split",
     "chrome_url_overrides": {
         "newtab": "index.html"
     }
